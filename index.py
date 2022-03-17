@@ -2,15 +2,6 @@ from dataset import users, countries
 from pprint import pprint
 
 
-# function check password consists of numbers only
-def check_int(n):
-    try:
-        int(n)
-        return True
-    except ValueError:
-        return False
-
-
 users_wrong_password = []
 girls_drivers = []
 user_countries = []
@@ -26,7 +17,7 @@ for user in users:
     # clean lis user_salary for user
     user_salary = [0]
     # function check password consists of numbers only, if true add user to list users_wrong_password
-    if check_int(user['password']):
+    if user['password'].isdigit():
         users_wrong_password.append({'name': user['name'], 'mail': user['mail'], 'password': user['password']})
 
     if user.get('friends', False):
