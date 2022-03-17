@@ -18,7 +18,7 @@ for user in users:
     user_salary = [0]
     # function check password consists of numbers only, if true add user to list users_wrong_password
     if user['password'].isdigit():
-        users_wrong_password.append({'name': user['name'], 'mail': user['mail'], 'password': user['password']})
+        users_wrong_password.append({'name': user['name'], 'mail': user['mail']})
 
     if user.get('friends', False):
         user_friends = user['friends']
