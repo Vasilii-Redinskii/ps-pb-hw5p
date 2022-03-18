@@ -30,9 +30,9 @@ for user in users:
 
             # check user has driver friend
             if user_friend.get('cars', False):
-                driver_number = +1
+                driver_number += 1
                 if user_friend.get('flights', False):
-                    flights_number = + len(user_friend['flights'])
+                    flights_number += len(user_friend['flights'])
 
             # check flights from list countries and add user's name in list user_countries
 
@@ -54,7 +54,10 @@ for user in users:
         max_salary = sum(user_salary)
         vip_user = user['name']
 
-avg_flights = flights_number / driver_number
+try:
+  avg_flights = round(flights_number / driver_number, 5)
+except ZeroDivisionError:
+  avg_flights = 0
 
 # remove element from users equal element from list user_countries
 for user in user_countries:
@@ -62,14 +65,12 @@ for user in user_countries:
         users.remove(user)
 
 
-pprint(users)
+#pprint(users)
 #pprint(countries)
 #pprint(users_wrong_password)
 #pprint(girls_drivers)
 #pprint(best_occupation)
 #pprint(vip_user)
-#pprint(driver_number)
-#pprint(flights_number)
-#pprint(avg_flights)
+pprint(avg_flights)
 #pprint(user_countries)
 
